@@ -1,0 +1,192 @@
+/* 変数設定 */
+:root {
+    --sk1-red: #a31d1d;
+    --drawbar-black: #1a1a1a;
+    --text-gold: #c5a059;
+    --bg-black: #050505;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-black);
+    color: #f0f0f0;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.8;
+    scroll-behavior: smooth;
+}
+
+/* ヒーローエリア */
+header {
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('http://192.168.1.64:8888/shinsaku_jazz/images/IMG_2115.JPG');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 5px solid var(--sk1-red);
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    margin: 0;
+    letter-spacing: 0.1em;
+}
+
+.sub-title {
+    font-size: 1.1rem;
+    letter-spacing: 0.4em;
+    color: var(--sk1-red);
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* ナビゲーション */
+nav {
+    position: sticky;
+    top: 0;
+    background: rgba(5, 5, 5, 0.95);
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--sk1-red);
+}
+
+/* コンテンツレイアウト */
+.content {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+section {
+    margin-bottom: 100px;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--text-gold);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* ライブカード */
+.live-card {
+    background: var(--drawbar-black);
+    padding: 25px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--sk1-red);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.live-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.date {
+    font-weight: bold;
+    color: var(--sk1-red);
+}
+
+/* ギアプリ */
+.gear-box {
+    background: #111;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+/* ボタン・リンク */
+.btn {
+    border: 1px solid var(--sk1-red);
+    color: #fff;
+    padding: 10px 25px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--sk1-red);
+}
+
+.contact-area {
+    text-align: center;
+}
+
+.email-link {
+    color: var(--text-gold);
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    font-size: 0.7rem;
+    color: #666;
+    border-top: 1px solid #222;
+}
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+    .live-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    nav {
+        gap: 15px;
+    }
+    nav a {
+        font-size: 0.65rem;
+    }
+}
+
+/* 画像エリアの設定（ここでサイズを固定します） */
+.member-img {
+    width: 100%;
+    height: 500px; /* ここでお好みの高さに固定（例：350px） */
+    overflow: hidden;
+    background-color: #222; /* 画像がない時の背景色 */
+}
+
+.member-img img {
+    width: 100%;
+    height: 100%; /* 親要素(member-img)の高さに合わせる */
+    
+    /* 重要：アスペクト比を維持したまま、枠いっぱいに表示 */
+    object-fit: cover; 
+    
+    /* 重要：顔が中心に来るように調整（必要に応じて top や bottom に変更可） */
+    object-position: center; 
+
+    filter: grayscale(100%);
+    transition: 0.5s ease;
+}
+
+/* ホバー時のズームエフェクト */
+.member-card:hover .member-img img {
+    filter: grayscale(0%);
+    transform: scale(1.1); /* 枠内で少しズームさせる */
+}
