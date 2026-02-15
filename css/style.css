@@ -190,3 +190,77 @@ footer {
     filter: grayscale(0%);
     transform: scale(1.1); /* 枠内で少しズームさせる */
 }
+
+/* --- Navigation Styles --- */
+nav {
+    position: sticky;
+    top: 0;
+    background: rgba(5, 5, 5, 0.95);
+    padding: 15px 0;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+/* --- Mobile Hamburger Menu --- */
+.menu-icon {
+    display: none; /* PCでは隠す */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.menu-icon span {
+    width: 100%;
+    height: 3px;
+    background: var(--sk1-red);
+    transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    .menu-icon { display: flex; } /* スマホで表示 */
+
+    nav ul {
+        display: none; /* 通常は隠す */
+        flex-direction: column;
+        position: absolute;
+        top: 55px;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 10, 10, 0.98);
+        padding: 20px 0;
+        text-align: center;
+        border-bottom: 2px solid var(--sk1-red);
+    }
+
+    nav ul.active {
+        display: flex; /* activeクラスがついたら表示 */
+    }
+
+    nav ul li { margin: 15px 0; }
+    nav a { font-size: 1.1rem; }
+
+    /* ハンバーガーから「×」に変形 */
+    .menu-icon.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-icon.open span:nth-child(2) { opacity: 0; }
+    .menu-icon.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}

@@ -15,11 +15,31 @@
 </header>
 
 <nav>
-    <a href="#bio">BIOGRAPHY</a>
-    <a href="#live">LIVE</a>
-    <a href="#concept">CONCEPT</a>
-    <a href="#members">MEMBERS</a>
+    <div class="menu-icon" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+    <ul id="nav-links">
+        <li><a href="#bio" onclick="toggleMenu()">BIOGRAPHY</a></li>
+        <li><a href="#members" onclick="toggleMenu()">MEMBERS</a></li>
+        <li><a href="#live" onclick="toggleMenu()">LIVE</a></li>
+        <li><a href="#facebook" onclick="toggleMenu()">NEWS</a></li>
+        <li><a href="#concept" onclick="toggleMenu()">CONCEPT</a></li>
+    </ul>
 </nav>
+
+<script>
+    function toggleMenu() {
+        const navLinks = document.getElementById('nav-links');
+        navLinks.classList.toggle('active');
+        
+        // アイコンを「×」に変える演出
+        const menuIcon = document.querySelector('.menu-icon');
+        menuIcon.classList.toggle('open');
+    }
+</script>
 
 <div class="content">
     <section id="bio">
